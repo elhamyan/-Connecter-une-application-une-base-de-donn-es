@@ -1,0 +1,11 @@
+//étape1:
+ j'ai utilisée la fonction INSERT INTO Utilisateur(nom,email) values (:nom, :email)
+  pour ajouter un Utilisateur dans la liste database.
+
+//étape2:
+  j'ai utilisée la fonction UPDATE Utilisateur set email =:email where id =:id
+ pour update email de utilisateur de ID=9,
+
+//étape3:
+ j'ai utilisée la fonction DELETE FROM Utilisateur WHERE id = :id
+ pour supprimé le utilisateur de id=7,
