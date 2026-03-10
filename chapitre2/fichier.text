@@ -1,0 +1,38 @@
+etape1:
+
+require 'connexion.php';
+ je domende la page de connexion.php et utilisée le pdo 
+
+
+try {
+    //Récupérer toutes les données de la table Utilisateur.
+    $sql = "SELECT * FROM Utilisateur";
+
+    //exécuter la requet sql dans la variable $sql
+    $stmt = $pdo->query($sql);
+
+    $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($utilisateurs as $user) {
+        echo "ID : " . $user['id'] . " - Nom : " . $user['nom'] . " - Email : " . $user['email'] . "<br>";
+    }
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+
+ // issi utilisée try et catch pour parcourir les erreur 
+
+
+
+
+//creer un table pour aficher les liste des utilisateurs comme un tableau
+
+et j'ai utilisée  foreach  pour parcourir les éléments d’un tableau un par un
+
+echo "<table border='1'>
+<tr><th>ID</th><th>Nom</th><th>Email</th></tr>";
+foreach ($utilisateurs as $user) {
+    echo "<tr><td>{$user['id']}</td><td>{$user['nom']}</td><td>{$user['email']}</td></tr>";
+}
+echo "</table>";
+
