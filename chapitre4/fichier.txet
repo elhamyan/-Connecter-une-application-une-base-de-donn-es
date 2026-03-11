@@ -1,0 +1,26 @@
+
+
+try{
+    $pdo= new PDO('mysql:host=localhost;dbname=blogdb','root','');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    echo "connexion réussie";
+}catch(PDOException $e){
+    echo "Erreur : ". $e->getMessage();
+}
+try : Je mets dedans les erreurs exceptionnelles qui peuvent se produire dans le code.
+catch : sert à intercepter et gérer les exceptions générées dans try.
+
+
+try {
+    $pdo->query("SELECT * FROM table_inexistante");
+ Ici,on a fait une requête SELECT sur une table qui n’existe pas dans la base de données.
+
+
+} catch (PDOException $e) {
+    file_put_contents('erreurs.log', $e->getMessage().PHP_EOL, FILE_APPEND);
+    echo "Une erreur est survenue. Contactez l'administrateur.";
+}
+  Ici, on utilise un bloc "catch" pour intercepter l’erreur.
+  Ensuite, on utilise "file_put_contents" pour enregistrer le message d’erreur dans
+  un fichier appelé (erreurs.log).
+  Enfin, on affiche un message général à l’utilisateur. 
