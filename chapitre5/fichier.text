@@ -1,0 +1,72 @@
+///etape1:
+
+ require 'connexion.php';
+   Je récupère le code depuis le fichier connexion.php.
+
+ $stmt=$pdo->prepare("INSERT INTO Utilisateur(nom,email) values (:nom, :email)");
+   Ici, on prépare une requête SQL pour insérer un nom et un email dans la table Utilisateur.
+
+ $stmt->execute([
+    'nom'=>'khadija',
+    'email'=>'khadija@test.com'
+  ]);
+  Ici, nous exécutons la requête pour insérer les données dans la table Utilisateur.
+
+ echo "utilisateur ajouté";
+  ici, on affiche 'utilisateur ajouté' s'il n'y a aucun problème.
+
+///etape2:
+  $nom='yousra';
+  $email='youssra@testz.com';
+ ici, on fait la déclaration des variables.
+  
+
+ $stmt= $pdo->prepare("INSERT INTO Utilisateur(nom,email) vALUES(:nom,:email)");
+   Ici, on prépare une requête SQL pour insérer un nom et un email dans la table Utilisateur.
+
+ ici, on associe les variables $nom et $email aux paramètres nommés :nom et :email de la requête préparée.
+  $stmt->bindparam(':nom',$nom);
+  $stmt->bindparam(':email',$email);
+
+ ici, on exécute la requête préparée avec les paramètres liés.
+  $stmt->execute();
+
+ catch(PDOException $e){
+    echo "Errure :" . $e->getMessge();
+  }
+  ici, on capture les exceptions PDO avec catch et on affiche le message d'erreur si une exception se produit.
+
+///etape3:
+ Requête SELECT sécurisée
+    $stmt = $pdo->prepare("SELECT * FROM Utilisateur WHERE nom = :nom");
+     Ici, on prépare une requête SQL pour SELECT * FROM Utilisateur WHERE nom = :nom .
+
+ $stmt->execute(['nom' => 'yousra']);
+  pour exécuter la requête et chercher l’utilisateur dont le nom est yousra dans la base de données.
+
+ $user = $stmt->fetch(PDO::FETCH_ASSOC);
+  permet de récupérer le résultat sous forme de tableau associatif.
+
+ echo "Email : " . $user['email'];
+  affiche l’email de l’utilisateur.
+
+ catch(PDOException $e)
+  sert à gérer les erreurs et afficher un message s’il y a un problème.
+
+///étape4:
+ try{
+ $stmt = $pdo->prepare("SELECT * FROM Utilisateur WHERE id = ?");
+  on prépare une requete SQL pour chercher un utilisateur dans la table Utilisateur selon son id.
+
+ $stmt->execute([29]);
+   on exécute la requete en donnant la valeur 29 comme id.
+
+ }catch(PDOException $e){
+  si une erreur se produit pendant l'exécution, le programme attrape l'erreur.
+
+ echo "Errure :" . $e->getMessge();
+  il affiche le message d'errure.
+
+ }
+
+
