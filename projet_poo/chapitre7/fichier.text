@@ -1,0 +1,17 @@
+étape1
+ classe est un modèle définissant des propriétés et des méthodes.
+ et la visibilité  public 
+
+ public function afficher() {
+ return "--titre :". $this->titre . "--contenu : " . $this->contenu;
+ }
+
+étape2
+ $article1 = new Article();
+ Créer un objet et définir ses propriétés
+ titre et contenu 
+
+étape3
+ $article2 = new Article();
+ Créer plusieurs objets
+
