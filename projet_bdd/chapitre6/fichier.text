@@ -1,0 +1,20 @@
+requier 'connecion.php'
+ ici se connecter à la base de données
+
+$nom = htmlspecialchars(trim($_POST['nom']));
+$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+
+ ici nettoyer et vérifier les données ly jaya men form
+
+ 
+
+if (!$email) die("Email invalide !");
+ Vérification de l’email
+
+$stmt = $pdo->prepare("INSERT INTO Utilisateur (nom, email) VALUES (:nom, :email)");
+$stmt->execute([
+    'nom' => $nom,
+    'email' => $email
+ ]);
+ echo "Utilisateur ajouté avec succès.";
+ ici, INSERT les données de l'Utilisateur (email,nom).
