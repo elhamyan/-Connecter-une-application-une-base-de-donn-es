@@ -1,0 +1,31 @@
+//Étape 1 : Créer la classe avec propriétés privées
+
+private $titre;
+private $contenu;
+on utilise private pour protéger les donneé.
+
+public function setTitre($titre) {
+        if (!empty($titre) && strlen($titre) > 3) {
+            $this->titre = $titre;
+        } else {
+            echo "Titre invalide.";
+        }
+    }
+ On utilise la function set pour modifier les valeurs avec validation.
+
+public function getTitre() {
+        return $this->titre;
+    }
+ On utilise la function get pour récupérer les valeurs .   
+
+htmlspecialchars:
+ On utilise htmlspecialchars pour la sécurité .
+
+public function afficher() {
+        return "Titre : {$this->titre} - Contenu : {$this->contenu}";
+    }
+on utilise la méthode afficher() regroupe les informations et les affiche. 
+
+//Étape 2 : Tester la classe
+Ici, on crée un objet en utilisant l’opérateur new, puis on affiche le
+résultat avec la méthode afficher().
