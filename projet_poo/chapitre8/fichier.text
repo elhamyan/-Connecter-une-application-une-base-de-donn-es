@@ -1,0 +1,26 @@
+étape1
+article.php
+on créer un Classe Article avec constructeur
+et function __construct
+
+étape2
+BlogArticle.php
+requier la page article.php
+
+class BlogArticle extends Article
+    private $auteur;
+ ici, ajoute une nouvelle propriété privée : $auteur.
+
+public function afficher(){
+        return parent::afficher() . " - Auteur : " . $this->auteur;
+    }
+Ici, on redéfinit la fonction afficher() afin d’afficher le résultat en ajoutant le nom de l’auteur.
+
+étape3
+test.php
+requier la page BlogArticle.php
+
+$article = new BlogArticle("POO en PHP", "Découvrire lhéritage.", "Alice");
+echo $article->afficher();
+Ici, on crée un objet de la classe BlogArticle en utilisant l’opérateur new, puis on affiche le
+résultat avec la méthode afficher().
