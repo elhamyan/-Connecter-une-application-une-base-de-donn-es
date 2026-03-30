@@ -1,0 +1,48 @@
+Database.php:
+
+class Database {
+    private $host = "localhost";
+    private $dbname = "blogdb";
+    private $username = "root";
+    private $password = "";
+    public $conn;
+    
+    }   
+
+ On commence par créer une classe appelée Database.
+ On lui a donné des propriétés (host, dbname, username, password) et
+ on les a déclarées comme privées (private) pour protéger les données de connexion.
+
+
+ public function getConnection() 
+ $this->conn = null;
+
+ Ensuite, on a créé une méthode publique appelée getConnection().
+ Cette méthode sert à récupérer (obtenir) la connexion à la base de données.
+
+J’ai utilisé try ou catch pour gérer le les excptions
+
+user.php
+
+class User {
+    private $conn;
+    private $table = "users";
+
+    public $id;
+    public $nom;
+    public $email;
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+    }
+ On commence par créer une classe appelée User.
+ On lui a donné des propriétés (id,nom,email) et
+ on les a déclarées comme public.
+
+et utilise les function créer et read,update et dellete.
+
+index.php
+ Utilisation des données
+
+
