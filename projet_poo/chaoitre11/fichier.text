@@ -1,0 +1,22 @@
+
+ On commence par créer une classe appelée Database.
+ On lui a donné des propriétés (host, dbname, username, password) et
+ on les a déclarées comme privées (private) pour protéger les données de connexion.
+
+
+ public function getConnection() 
+ $this->conn = null;
+
+ Ensuite, on a créé une méthode publique appelée getConnection().
+ Cette méthode sert à récupérer (obtenir) la connexion à la base de données.
+
+J’ai utilisé try ou catch pour gérer le les excptions
+
+Étape 2 : Exécuter un SELECT
+
+Étape 3 : Insérer un nouvel enregistrement
+
+Étape 4 : Mettre à jour un enregistrement
+
+
+Étape 5 : Supprimer un enregistrement
